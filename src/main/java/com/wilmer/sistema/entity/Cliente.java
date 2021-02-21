@@ -12,9 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
@@ -25,17 +23,25 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "stock")
-public class Stock implements Serializable{
+@Table(name = "clientes")
+public class Cliente implements Serializable{
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idStock;
-    
-    @OneToOne
-    @JoinColumn(name = "id_producto")
-    private Producto idProducto;
-    
+    private Long idCliente;
     @Column(nullable = false)
-    private Integer cantidad;
+    private String nombre;
+    @Column(nullable = false)
+    private String apellido;
+    @Column(nullable = false)
+    private String direccion;
+    @ManyToOne
+    @JoinColumn(name = "id_ciudad")
+    private Ciudad idCiudad;
+    private String telefono;
+    @OneToOne
+    @JoinColumn(name = "id_correo")
+    private Correo idCorreo;
+    private Integer identificacion;
 }
