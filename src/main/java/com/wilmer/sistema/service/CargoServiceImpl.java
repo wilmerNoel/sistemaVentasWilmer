@@ -22,11 +22,13 @@ public class CargoServiceImpl implements CargoService{
     }
 
     @Override
+    @Transactional
     public void eliminar(Cargo cargo) {
         cargoDao.delete(cargo);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Cargo encontrarCargo(Cargo cargo) {
         return cargoDao.findById(cargo.getIdCargo()).orElse(null);
     }
