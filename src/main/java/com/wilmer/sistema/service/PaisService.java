@@ -13,7 +13,7 @@ import java.util.List;
  */
 import com.wilmer.sistema.entity.Pais;
 public interface PaisService {
-    public List<Pais> listarPaise();
+    public List<Pais> listarPais();
     public void guardarPais(Pais pais);
     public void eliminarPais(Pais pais);
     public Pais encontrarPais(Pais pais);

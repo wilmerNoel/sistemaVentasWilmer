@@ -4,8 +4,10 @@ import com.wilmer.sistema.dao.MarcaDao;
 import com.wilmer.sistema.entity.Marca;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class MarcaServiceImpl implements MarcaService{
     @Autowired
     public MarcaDao marcaDao;

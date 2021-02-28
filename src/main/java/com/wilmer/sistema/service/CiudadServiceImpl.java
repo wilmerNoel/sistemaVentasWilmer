@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.wilmer.sistema.service;
 
 import com.wilmer.sistema.dao.CiudadDao;
 import com.wilmer.sistema.entity.Ciudad;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author wilme
- */
+@Service
 public class CiudadServiceImpl implements CiudadService{
     @Autowired
     public CiudadDao ciudadDao;

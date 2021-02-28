@@ -15,4 +15,5 @@ public interface VendedorService {
     public List<Vendedor> listarVendedor();
     public void guardarVendedor(Vendedor vendedor);
     public void eliminarVendedor(Vendedor vendedor);
+    public Vendedor encontrarVendedor(Vendedor vendedor);
 }

@@ -9,12 +9,10 @@ import com.wilmer.sistema.dao.DetalleFacturaDao;
 import com.wilmer.sistema.entity.DetalleFactura;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author wilme
- */
+@Service
 public class DetalleFacturaServiceImpl implements DetalleFacturaService{
     @Autowired
     public DetalleFacturaDao detalleFacturaDao;

@@ -8,12 +8,10 @@ package com.wilmer.sistema.service;
 import com.wilmer.sistema.dao.EmpleadosDao;
 import com.wilmer.sistema.entity.Empleado;
 import java.util.List;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author wilme
- */
+@Service
 public class EmpleadoServiceImpl implements EmpleadoService{
     public EmpleadosDao empleadosDao;
     @Override

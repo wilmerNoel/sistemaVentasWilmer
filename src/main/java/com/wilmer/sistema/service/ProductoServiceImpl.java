@@ -5,39 +5,41 @@
  */
 package com.wilmer.sistema.service;
 
-import com.wilmer.sistema.dao.CorreoDao;
-import com.wilmer.sistema.entity.Correo;
+import com.wilmer.sistema.dao.ProductoDao;
+import com.wilmer.sistema.entity.Producto;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class CorreoServiceImpl implements CorreoService{
+public class ProductoServiceImpl implements ProductoService{
     @Autowired
-    public CorreoDao correoDao;
+    public ProductoDao productoDao;
     @Override
     @Transactional(readOnly = true)
-    public List<Correo> listarCorreo() {
-        return (List<Correo>) correoDao.findAll();
+    public List<Producto> listarProducto() {
+        return (List<Producto>) productoDao.findAll();
     }
 
     @Override
     @Transactional
-    public void guardarCorreo(Correo correo) {
-        correoDao.save(correo);
+    public void guardarProducto(Producto producto) {
+        productoDao.save(producto);
+        
     }
 
     @Override
     @Transactional
-    public void eliminarCorreo(Correo correo) {
-        correoDao.delete(correo);
+    public void eliminarProducto(Producto producto) {
+        productoDao.delete(producto);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Correo encontrarCorreo(Correo correo) {
-        return correoDao.findById(correo.getIdCorreo()).orElse(null);
+    public Producto encontrarProducto(Producto producto) {
+        return productoDao.findById(producto.getIdProducto()).orElse(null);
     }
     
 }

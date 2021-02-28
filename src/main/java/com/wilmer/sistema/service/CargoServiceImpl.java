@@ -4,8 +4,10 @@ import com.wilmer.sistema.dao.CargoDao;
 import com.wilmer.sistema.entity.Cargo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class CargoServiceImpl implements CargoService{
     @Autowired
     public CargoDao cargoDao;
