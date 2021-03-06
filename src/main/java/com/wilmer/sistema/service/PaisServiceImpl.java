@@ -38,5 +38,15 @@ public class PaisServiceImpl implements PaisService{
     public Pais encontrarPais(Pais pais) {
         return paisDao.findById(pais.getIdPais()).orElse(null);
     }
+
+    @Override
+    public List<Pais> listarPaisPorNombre(String nombre) {
+        return paisDao.listarPaisPorNombre(nombre);
+    }
+
+    @Override
+    public void eliminarPaisPorId(Long id) {
+        paisDao.deleteById(id);
+    }
     
 }

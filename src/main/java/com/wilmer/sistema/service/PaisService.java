@@ -17,4 +17,6 @@ public interface PaisService {
     public void guardarPais(Pais pais);
     public void eliminarPais(Pais pais);
     public Pais encontrarPais(Pais pais);
+    public List<Pais> listarPaisPorNombre(String nombre);
+    public void eliminarPaisPorId(Long id);
 }
