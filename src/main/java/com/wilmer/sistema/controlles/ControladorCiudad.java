@@ -19,27 +19,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.wilmer.sistema.entity.Ciudad;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 /**
  *
  * @author wilme
  */
 @RestController
-@RequestMapping("/api/ventas/ciudad")
+@RequestMapping("/api/ventas/ciudad/")
 public class ControladorCiudad {
     @Autowired
     private CiudadService ciudadService;
     
-    @GetMapping
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("listar")
     public List<Ciudad> listarCiudad() {
         List<Ciudad> lista = StreamSupport
                 .stream(ciudadService.listarCiudad().spliterator(), false)
                 .collect(Collectors.toList());
         return lista;
     }
-
-    @PostMapping
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("guardar")
     public ResponseEntity<?> agregar(@RequestBody Ciudad ciudad) {
         ciudadService.guardar(ciudad);
         return ResponseEntity.status(HttpStatus.CREATED).body("ok");
+    }
+    @CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("eliminar/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        ciudadService.eliminarCiudadPorId(id);
+        return ResponseEntity.ok().build();
+    }
+    @PutMapping("/edit")
+    public ResponseEntity<?> modificarPais(@RequestBody Ciudad ciudad){
+       ciudadService.guardar(ciudad);
+       return ResponseEntity.status(HttpStatus.CREATED).body("ok");
     }
 }

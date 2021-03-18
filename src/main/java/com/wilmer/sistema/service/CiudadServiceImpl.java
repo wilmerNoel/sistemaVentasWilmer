@@ -34,5 +34,9 @@ public class CiudadServiceImpl implements CiudadService{
     public Ciudad encontrarCiudad(Ciudad ciudad) {
        return ciudadDao.findById(ciudad.getIdCiudad()).orElse(null);
     }
+    @Override
+    public void eliminarCiudadPorId(Long id) {
+        ciudadDao.deleteById(id);
+    }
     
 }

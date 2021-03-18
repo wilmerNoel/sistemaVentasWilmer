@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.wilmer.sistema.controlles;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,22 +25,22 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author wilme
  */
 @RestController
-@RequestMapping("/api/ventas/pais")
+@RequestMapping("/api/ventas/pais/")
 public class ControladorPais {
 
     @Autowired
     private PaisService paisService;
     
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/listar")
+    @GetMapping("listar")
     public List<Pais> listarPaises() {
         List<Pais> lista = StreamSupport
                 .stream(paisService.listarPais().spliterator(), false)
                 .collect(Collectors.toList());
         return lista;
     }
-
-    @PostMapping
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("guardar")
     public ResponseEntity<?> agregar(@RequestBody Pais pais) {
         paisService.guardarPais(pais);
         return ResponseEntity.status(HttpStatus.CREATED).body("ok");
@@ -57,8 +52,8 @@ public class ControladorPais {
                 .collect(Collectors.toList());
         return lista;
     }
-
-    @DeleteMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("eliminar/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         paisService.eliminarPaisPorId(id);
         return ResponseEntity.ok().build();
@@ -68,17 +63,4 @@ public class ControladorPais {
        paisService.guardarPais(pais);
        return ResponseEntity.status(HttpStatus.CREATED).body("ok");
     }
-    /*@PutMapping("/{id}")
-	public ResponseEntity<?> modificarPais(@RequestBody Pais paisDetails,@PathVariable Long id){
-		Optional<Pais> pais=paisService.encontrarPais(paisDetails);
-		if(!empresa.isPresent()) {
-			return ResponseEntity.notFound().build();
-		}
-		//util las propiedades get y set
-		pais.get().setNombre(paisDetails.getNombre());
-		pais.get().setNumeroNit(empresaDetails.getNumeroNit());
-		empresa.get().setFechaFundacion(empresaDetails.getFechaFundacion());
-		empresa.get().setDireccion(empresaDetails.getDireccion());
-		return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(empresa.get()));
-	}*/
 }

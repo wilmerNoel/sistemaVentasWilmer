@@ -16,4 +16,5 @@ public interface CiudadService {
     public void guardar(Ciudad ciudad);
     public void eliminarCiudad(Ciudad ciudad);
     public Ciudad encontrarCiudad(Ciudad ciudad);
+    public void eliminarCiudadPorId(Long id);
 }
