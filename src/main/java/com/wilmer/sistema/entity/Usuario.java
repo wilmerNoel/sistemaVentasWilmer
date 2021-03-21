@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.wilmer.sistema.entity;
 
 import java.io.Serializable;
@@ -13,17 +18,25 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "stock")
-public class Stock implements Serializable{
+@Table(name = "usuarios")
+public class Usuario implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idStock;
+    private Long idUsuario;
     
     @OneToOne
-    @JoinColumn(name = "id_producto")
-    private Producto idProducto;
+    @JoinColumn(name = "id_empleado")
+    private Empleado idEmpleado;
+    
+    @Column(nullable = false, length = 200)
+    private String usuario;
     
     @Column(nullable = false)
-    private Integer cantidad;
+    private String password;
+    
+    @Column
+    private Integer estado;
+    
+    private Rol idRol;
 }
