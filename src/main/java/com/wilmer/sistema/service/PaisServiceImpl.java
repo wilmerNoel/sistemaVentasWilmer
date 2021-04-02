@@ -9,6 +9,7 @@ import com.wilmer.sistema.dao.PaisDao;
 import com.wilmer.sistema.entity.Pais;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,11 +22,17 @@ public class PaisServiceImpl implements PaisService{
     public PaisDao paisDao;
     @Override
     public List<Pais> listarPais() {
+        
         return (List<Pais>) paisDao.findAll();
     }
 
     @Override
     public void guardarPais(Pais pais) {
+        /*String pai = pais.getNombre();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String paises = encoder.encode(pai);
+        pais.setNombre(paises);
+        System.out.println("pais encriptado: "+ pais.getNombre());*/
         paisDao.save(pais);
     }
 

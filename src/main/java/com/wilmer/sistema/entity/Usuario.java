@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
@@ -25,7 +26,7 @@ public class Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
     
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "id_empleado")
     private Empleado idEmpleado;
     
@@ -37,6 +38,4 @@ public class Usuario implements Serializable{
     
     @Column
     private Integer estado;
-    
-    private Rol idRol;
 }

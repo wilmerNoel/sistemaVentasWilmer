@@ -19,6 +19,6 @@ public class Pais implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPais;
-    @Column(length = 60, nullable = false)
+    @Column(length = 200, nullable = false)
     private String nombre;
 }
