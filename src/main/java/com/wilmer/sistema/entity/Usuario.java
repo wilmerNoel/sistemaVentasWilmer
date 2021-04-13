@@ -6,6 +6,7 @@
 package com.wilmer.sistema.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,4 +39,8 @@ public class Usuario implements Serializable{
     
     @Column
     private Integer estado;
+    
+    @OneToMany
+    @JoinColumn(name = "id_usuario")
+    private List<Rol> roles;
 }

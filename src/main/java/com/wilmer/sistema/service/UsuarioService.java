@@ -8,10 +8,6 @@ package com.wilmer.sistema.service;
 import com.wilmer.sistema.entity.Usuario;
 import java.util.List;
 
-/**
- *
- * @author wilme
- */
 public interface UsuarioService {
     public List<Usuario> listarUsuario();
     public void guardarUsuaerio(Usuario usuario);

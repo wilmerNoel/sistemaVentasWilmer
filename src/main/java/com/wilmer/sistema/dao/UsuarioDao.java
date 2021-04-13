@@ -12,5 +12,5 @@ import com.wilmer.sistema.entity.Usuario;
  * @author wilme
  */
 public interface UsuarioDao extends JpaRepository<Usuario, Long>{
-    
+    //Usuario findByUsername(String usuario);
 }

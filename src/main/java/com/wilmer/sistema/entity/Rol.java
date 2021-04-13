@@ -23,8 +23,5 @@ public class Rol implements Serializable{
     @Column(nullable = false)
     private String nombre;
     
-    @OneToMany
-    @JoinColumn(name = "id_usuario")
-    private Usuario idUsuario;
     
 }
